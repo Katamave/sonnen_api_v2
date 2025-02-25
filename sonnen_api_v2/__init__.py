@@ -8,7 +8,7 @@ from typing import Any #, Dict, Optional, Union, Tuple
 from sonnen_api_v2.sonnen import Sonnen as Batterie, BatterieError, BatterieAuthError, BatterieHTTPError, BatterieSensorError
 from .const import DEFAULT_PORT
 
-__version__ = '0.5.13'
+__version__ = '0.5.14'
 
 __all__ = (
     "Batterie"

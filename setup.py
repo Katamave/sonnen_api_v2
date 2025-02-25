@@ -28,12 +28,15 @@ setup(
     description=read_file('README.md'),
     install_requires=[
         'requests~=2.32.3',
-        'aiohttp~=3.11.11',
+        'aiohttp>=3.11.11',
         'isal~=1.7.1',
-        'aiohttp-fast-zlib~=0.2.1,<4.0.0',
+        'aiohttp-fast-zlib>=0.2.0,<4.0.0',
         'urllib3>=1.26.20,<2.0.0',
         'yarl~=1.18.3',
         "setuptools~=75.7.0",
+        "propcache~=0.2.1",
+        "attrs~=24.2.0",
+        "pytest-asyncio~=0.24.0",
     ],
     python_requires=">=3.12",
 )

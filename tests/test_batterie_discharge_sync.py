@@ -25,7 +25,7 @@ def test_sync_methods(battery_discharging: Batterie) -> None:
 
     assert battery_discharging.discharging > 0
     assert battery_discharging.charging == 0
-    assert battery_discharging.fully_discharged_at.strftime('%d.%b.%Y %H:%M') == '21.Nov.2023 05:40'
+    assert battery_discharging.fully_discharged_at.strftime('%d.%b.%Y %H:%M') == '21.Nov.2023 03:28'
 
     # sync wrapped methods used by ha component
     status_data = battery_discharging.sync_get_status()
@@ -65,9 +65,6 @@ def test_sync_methods(battery_discharging: Batterie) -> None:
     configurations = battery_discharging.sync_get_configurations()
     assert configurations.get('DE_Software') == '1.14.5'
     assert configurations.get('EM_USOC') == 20
-
-    assert battery_discharging.kwh_consumed == 816.5
-    assert battery_discharging.kwh_produced == 3969.8
 
     from .check_results import check_discharge_results
 

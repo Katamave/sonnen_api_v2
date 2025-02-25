@@ -75,6 +75,10 @@ async def test_batterieresponse_works() -> None:
 
     assert response.version == _batterie.get_sensor_value('configuration_de_software')
     assert OPERATING_MODE == _batterie.get_sensor_value('configuration_em_operatingmode')
+    last_time_full = _batterie.get_sensor_value('last_time_full')
+#    time_since_full = _batterie.get_sensor_value('time_since_full')
+    seconds_since_full = _batterie.get_sensor_value('seconds_since_full')
+    print(f'last time full {last_time_full.strftime('%d.%b.%Y %H:%M')}  seconds: {seconds_since_full}')
 
 
 @pytest.mark.asyncio

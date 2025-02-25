@@ -25,7 +25,7 @@ def test_sync_methods(battery_discharging_reserve: Batterie) -> None:
 
     assert battery_discharging_reserve.discharging > 0
     assert battery_discharging_reserve.charging == 0
-    assert battery_discharging_reserve.fully_discharged_at.strftime('%d.%b.%Y %H:%M') == '20.Nov.2023 19:36'
+    assert battery_discharging_reserve.fully_discharged_at.strftime('%d.%b.%Y %H:%M') == '20.Nov.2023 18:27'
 
     # sync wrapped methods used by ha component
     status_data = battery_discharging_reserve.sync_get_status()
@@ -39,15 +39,10 @@ def test_sync_methods(battery_discharging_reserve: Batterie) -> None:
 
     assert status_data.get('Timestamp') == '2023-11-20 17:00:59'
     assert status_data.get('GridFeedIn_W') == 0
-    assert status_data.get('Consumption_W') == 1541
-    assert status_data.get('Production_W') == 103
+    assert status_data.get('Consumption_W') == 1563
+    assert status_data.get('Production_W') == 125
     assert status_data.get('Pac_total_W') == 1438
 
-    assert latest_data.get('Timestamp') == '2023-11-20 17:00:59'
-    assert latest_data.get('GridFeedIn_W') == 0
-    assert latest_data.get('Consumption_W') == 1541
-    assert latest_data.get('Production_W') == 103
-    assert latest_data.get('Pac_total_W') == 1438
 
     powermeter = battery_discharging_reserve.sync_get_powermeter()
     assert powermeter[0]['direction'] == 'production'

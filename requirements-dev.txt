@@ -4,8 +4,8 @@ aiohttp-fast-zlib~=0.2.1,<4.0.0
 isal~=1.7.1
 urllib3>=1.26.20,<2.0.0
 yarl~=1.18.3
-voluptuous>=0.15.2
 setuptools~=75.7.0
+requests~=2.32
 
 #for tests
 pytest
@@ -14,7 +14,6 @@ pytest-aiohttp
 pytest-cov
 pytest-mock
 asyncmock>=0.4.2
-requests~=2.32
 freezegun~=1.5.1
 responses
 urllib3_mock
