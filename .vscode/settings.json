@@ -1,3 +1,4 @@
 {
-    "editor.lightbulb.enabled": "off"
+    "editor.lightbulb.enabled": "off",
+    "python.REPL.enableREPLSmartSend": false
 }

@@ -80,9 +80,10 @@ def __mock_latest_discharging(*args)-> json:
             },
             'Eclipse Led': {
                 'Blinking Red': False,
-                'Pulsing Green': False,
+                "Brightness":100,
+                'Pulsing Green': True,
                 'Pulsing Orange': False,
-                'Pulsing White': True,
+                'Pulsing White': False,
                 'Solid Red': False
             },
             'MISC Status Bits': {
@@ -98,7 +99,7 @@ def __mock_latest_discharging(*args)-> json:
                 'Low Temperature': False,
                 'Max System SOC': False,
                 'Max User SOC': False,
-                'Microgrid Enabled': False,
+                'Microgrid Enabled': True,
                 'Min System SOC': False,
                 'Min User SOC': False,
                 'Over Charge Current': False,
@@ -172,8 +173,8 @@ def __mock_inverter_discharging(*args)-> json:
         "iac_total": 0.39,
         "ibat": 0.01,
         "ipv": 0.0,
-        "pac_microgrid": 0.0,
-        "pac_total": 1438.67,
+        "pac_microgrid": 1438.67,
+        "pac_total": 0.0,
         "pbat": -0.14,
         "phi": -0.82,
         "ppv": 0.0,

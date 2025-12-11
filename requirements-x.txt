@@ -1,0 +1,10 @@
+#must be compatible versions with home assistant
+aiohttp~=3.11.16,<4.0.0
+aiohttp-fast-zlib~=0.2.3
+attrs~=25.1.0
+isal~=1.7
+propcache~=0.3.0
+requests~=2.32.3
+urllib3>=1.26.20,<2.0.0
+yarl~=1.18.3
+#setuptools==78.1.1

@@ -79,11 +79,23 @@ def __mock_latest_discharging(*args)-> json:
                 'Voltage Monitor Changed': False
             },
             'Eclipse Led': {
-                'Blinking Red': False,
-                'Pulsing Green': False,
-                'Pulsing Orange': False,
-                'Pulsing White': True,
-                'Solid Red': False
+                    "Blinking Green":False,
+                    "Blinking Red":False,
+                    "Blinking blue":False,
+                    "Blinking Purple":False,
+                    "Blinking sonnenGradient":False,
+                    "Brightness":100,
+                    "Eclipse Status":"0x01 - ONGRID_READY",
+                    "Pulsing Green":False,
+                    "Pulsing Orange":False,
+                    "Pulsing Red":False,
+                    "Pulsing White":True,
+                    "Pulsing blue":False,
+                    "Throbbing Purple": False,
+                    "Rotating sonnenGradient":False,
+                    "Solid Red":False,
+                    "Solid blue":False,
+                    "Solid sonnenGradient":False
             },
             'MISC Status Bits': {
                 'Discharge not allowed': False,

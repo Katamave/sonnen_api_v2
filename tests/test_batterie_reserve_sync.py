@@ -26,6 +26,11 @@ def test_sync_methods(battery_discharging_reserve: Batterie) -> None:
     assert battery_discharging_reserve.discharging > 0
     assert battery_discharging_reserve.charging == 0
     assert battery_discharging_reserve.fully_discharged_at.strftime('%d.%b.%Y %H:%M') == '20.Nov.2023 18:27'
+    assert battery_discharging_reserve.microgrid_enabled is True
+
+    assert battery_discharging_reserve.led_state == "Pulsing Green 100%"
+    assert battery_discharging_reserve.led_state_text == "Off Grid."
+    assert battery_discharging_reserve.led_status == "Off Grid."
 
     # sync wrapped methods used by ha component
     status_data = battery_discharging_reserve.sync_get_status()
@@ -54,8 +59,8 @@ def test_sync_methods(battery_discharging_reserve: Batterie) -> None:
     assert battery_status.get('usableremainingcapacity') == 22.2178
 
     inverter_data = battery_discharging_reserve.sync_get_inverter()
-    assert  int(inverter_data.get('pac_total')) == status_data.get('Pac_total_W')
-    assert inverter_data.get('pac_total') == 1438.67
+    assert  int(inverter_data.get('pac_microgrid')) == status_data.get('Pac_total_W')
+    assert inverter_data.get('pac_microgrid') == 1438.67
     assert inverter_data.get('uac') == 233.55
 
     configurations = battery_discharging_reserve.sync_get_configurations()
@@ -66,5 +71,7 @@ def test_sync_methods(battery_discharging_reserve: Batterie) -> None:
     assert battery_discharging_reserve.battery_usoc == 11.0
 
     from .check_results import check_reserve_results
+
+    print(f'dod limit: {round((battery_discharging_reserve.battery_remaining_capacity_wh - battery_discharging_reserve.usable_remaining_capacity_wh)/ battery_discharging_reserve.battery_full_charge_capacity_wh, 2)}%')
 
     check_reserve_results(battery_discharging_reserve)

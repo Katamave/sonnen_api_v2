@@ -1,6 +1,11 @@
 """pytest tests/test_batterie_discharge_sync.py -s -v -x
-3. Sync update called from sync method
+    3. Sync update called from sync method
+
+    Fixture for discharging tests has extra attributes in 'Eclipse Led'
+        to test scenario of more attributes in a future firmware.
+        This has been the cause of crashes with such firmware updates in the past.
 """
+
 import datetime
 import logging
 import pytest
@@ -26,6 +31,11 @@ def test_sync_methods(battery_discharging: Batterie) -> None:
     assert battery_discharging.discharging > 0
     assert battery_discharging.charging == 0
     assert battery_discharging.fully_discharged_at.strftime('%d.%b.%Y %H:%M') == '21.Nov.2023 03:28'
+
+    assert battery_discharging.led_state == "Pulsing White 100%"
+    assert battery_discharging.led_state_text == "Normal Operation."
+    assert battery_discharging.led_status == "0x01 - ONGRID_READY"
+
 
     # sync wrapped methods used by ha component
     status_data = battery_discharging.sync_get_status()
@@ -67,5 +77,6 @@ def test_sync_methods(battery_discharging: Batterie) -> None:
     assert configurations.get('EM_USOC') == 20
 
     from .check_results import check_discharge_results
+
 
     check_discharge_results(battery_discharging)

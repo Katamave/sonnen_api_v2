@@ -19,13 +19,13 @@ def __mock_status_discharging(*args)-> json:
         'OperatingMode': '2',
         'Pac_total_W': 438,
         'Production_W': 102,
-        'RSOC': 19,
-        'RemainingCapacity_Wh': 3929,
+        'RSOC': 18,
+        'RemainingCapacity_Wh': 5048,
         'Sac1': 438,
         'Sac2': None,
         'Sac3': None,
         'SystemStatus': 'OffGrid',
-        'Timestamp': '2023-11-20 17:00:50',
+        'Timestamp': '2023-11-20 17:00:59',
         'USOC': 12,
         'Uac': 237,
         'Ubat': 211,
@@ -40,9 +40,9 @@ def __mock_latest_discharging(*args)-> json:
         'Pac_total_W': 1439,
         'Consumption_W': 1541,
         'Production_W': 102,
-        'RSOC': 19,
+        'RSOC': 18,
         'SetPoint_W': 439,
-        'Timestamp': '2023-11-20 17:00:50',
+        'Timestamp': '2023-11-20 17:00:59',
         'USOC': 12,
         'UTC_Offet': 2,
         'ic_status': {
@@ -77,9 +77,10 @@ def __mock_latest_discharging(*args)-> json:
             },
             'Eclipse Led': {
                 'Blinking Red': False,
-                'Pulsing Green': False,
+                "Brightness":100,
+                'Pulsing Green': True,
                 'Pulsing Orange': False,
-                'Pulsing White': True,
+                'Pulsing White': False,
                 'Solid Red': False
             },
             'MISC Status Bits': {
@@ -95,7 +96,7 @@ def __mock_latest_discharging(*args)-> json:
                 'Low Temperature': False,
                 'Max System SOC': False,
                 'Max User SOC': False,
-                'Microgrid Enabled': False,
+                'Microgrid Enabled': True,
                 'Min System SOC': False,
                 'Min User SOC': False,
                 'Over Charge Current': False,
@@ -126,6 +127,57 @@ def __mock_latest_discharging(*args)-> json:
             'statebms': 'ready',
             'statecorecontrolmodule': 'offgrid',
             'stateinverter': 'running',
-            'timestamp': 'Mon Nov 20 17:00:50 2023'
+            'timestamp': 'Mon Nov 20 17:00:59 2023'
         }
+    }
+
+def __mock_battery_discharging(*args)-> json:
+    return {
+        "balancechargerequest":0.0,
+        "chargecurrentlimit":39.97,
+        "cyclecount":30.0,
+        "dischargecurrentlimit":39.97,
+        "fullchargecapacity":201.98,
+        "fullchargecapacitywh":20683.490,
+        "maximumcelltemperature":19.95,
+        "maximumcellvoltage":3.257,
+        "maximumcellvoltagenum":0.0,
+        "maximummodulecurrent":0.0,
+        "maximummoduledcvoltage":104.15,
+        "maximummoduletemperature":-273.15,
+        "minimumcelltemperature":18.95,
+        "minimumcellvoltage":3.251,
+        "minimumcellvoltagenum":0.0,
+        "minimummodulecurrent":0.0,
+        "minimummoduledcvoltage":104.15,
+        "minimummoduletemperature":-273.15,
+        "nominalmoduledcvoltage":102.4,
+        "relativestateofcharge":18.0,
+        "remainingcapacity":36.3564,
+        "systemalarm":0.0,
+        "systemaveragecurrent":0.035,
+        "systemcurrent":0.0,
+        "systemdcvoltage":208.3,
+        "systemstatus":49,
+        "systemtime":0.0,
+        "systemwarning":0.0,
+        "usableremainingcapacity":24.2376
+    }
+
+def __mock_inverter_discharging(*args)-> json:
+    return {
+        "fac": 0.0,
+        "iac_total": 0.39,
+        "ibat": 0.01,
+        "ipv": 0.0,
+        "pac_microgrid": 1438.67,
+        "pac_total": 0.0,
+        "pbat": -0.14,
+        "phi": -0.82,
+        "ppv": 0.0,
+        "sac_total": 0.0,
+        "tmax": 55.53,
+        "uac": 233.55,
+        "ubat": 209.18,
+        "upv": 0.0
     }
